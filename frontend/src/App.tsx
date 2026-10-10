@@ -1,8 +1,10 @@
 import { useState } from "react"
 import type { CheckResponse } from "./types/check"
 import { checkUrl, getErrorMessage } from "./api/check";
+
 import UrlForm from "./components/UrlForm";
 import CheckSummary from "./components/CheckSummary";
+import ItemList from "./components/ItemList";
 
 function App() {
 
@@ -33,7 +35,12 @@ function App() {
 
       <UrlForm loading={loading} error={error} onSubmit={handleCheck} />
 
-      {result && <CheckSummary result={result} />}
+      {result && (
+        <>
+          <CheckSummary result={result} />
+          <ItemList items={result.items} />
+        </>
+      )}
     </main>
   )
 }
