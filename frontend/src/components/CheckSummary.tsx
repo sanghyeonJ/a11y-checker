@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { CheckResponse, ItemStatus } from "../types/check";
-import { STATUS_LABEL } from "../contents/labels";
+import { STATUS_LABEL } from "../constants/labels";
 
 type CheckSummaryProps = {
   result: CheckResponse;

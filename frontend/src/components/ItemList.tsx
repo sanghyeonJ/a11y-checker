@@ -1,5 +1,5 @@
 import type { ItemResult, ItemStatus, Severity } from '../types/check';
-import { SEVERITY_LABEL, STATUS_LABEL } from '../contents/labels';
+import { SEVERITY_LABEL, STATUS_LABEL } from '../constants/labels';
 
 type ItemListProps = {
   items: ItemResult[];
@@ -59,7 +59,12 @@ function ItemList ({ items }: ItemListProps) {
                   >
                     <p className='text-sm font-semibold'>
                       [{SEVERITY_LABEL[issue.severity]}]
-                      <span className="ml-2 font-normal text-gray-600">{issue.line}번째 줄</span>
+                      <a
+                        href={`#line-${issue.line}`}
+                        className="ml-2 font-normal text-blue-700 underline hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                      >
+                        {issue.line}번째 줄 코드 보기
+                      </a>
                     </p>
                     <p className='mt-1 text-gray-900'>{issue.message}</p>
                     <pre className="mt-2 whitespace-pre-wrap break-all rounded bg-gray-100 p-2 text-sm text-gray-900">

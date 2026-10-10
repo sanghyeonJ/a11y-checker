@@ -5,6 +5,7 @@ import { checkUrl, getErrorMessage } from "./api/check";
 import UrlForm from "./components/UrlForm";
 import CheckSummary from "./components/CheckSummary";
 import ItemList from "./components/ItemList";
+import SourceView from "./components/SourceView";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <>
           <CheckSummary result={result} />
           <ItemList items={result.items} />
+          <SourceView items={result.items} sourceLines={result.sourceLines} />
         </>
       )}
     </main>
