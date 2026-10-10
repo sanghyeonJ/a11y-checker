@@ -2,6 +2,7 @@ import { useState } from "react"
 import type { CheckResponse } from "./types/check"
 import { checkUrl, getErrorMessage } from "./api/check";
 import UrlForm from "./components/UrlForm";
+import CheckSummary from "./components/CheckSummary";
 
 function App() {
 
@@ -32,12 +33,7 @@ function App() {
 
       <UrlForm loading={loading} error={error} onSubmit={handleCheck} />
 
-      {/* 임시: 다음 단계에서 요약 컴포넌트로 교체 */}
-      {result && (
-        <pre className="mt-6 overflow-x-auto rounded bg-gray-100 p-4 text-sm">
-          {JSON.stringify(result, null, 2)}
-        </pre>
-      )}
+      {result && <CheckSummary result={result} />}
     </main>
   )
 }
